@@ -14,7 +14,7 @@ public:
 
 	void handleInput(sf::RenderWindow& window) override;
 	void update(sf::Time delta) override;
-	void render(sf::RenderWindow& window) override;
+	void render(sf::RenderWindow& window) const override;
 
 private:
 	sf::Font font_;

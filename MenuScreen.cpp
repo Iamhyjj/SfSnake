@@ -12,13 +12,14 @@ MenuScreen::MenuScreen()
 {
 	font_.loadFromFile("Fonts/game_over.ttf");
 	text_.setFont(font_);
+	text_.setFillColor(sf::Color::Green);
 	text_.setString(
 		"\n\n\n\n\n\n\n\n\nPress [SPACE] to play"
 		"\n\nPress [ESC] to quit");
 
 	snakeText_.setFont(font_);
 	snakeText_.setString("Snake!");
-	snakeText_.setColor(sf::Color::Green);
+	snakeText_.setFillColor(sf::Color::Green);
 	snakeText_.setCharacterSize(64);
 	snakeText_.setStyle(sf::Text::Bold);
 
@@ -36,7 +37,7 @@ MenuScreen::MenuScreen()
 void MenuScreen::handleInput(sf::RenderWindow& window)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		Game::Screen = std::make_shared<GameScreen>();
+		Game::Screen = Game::GameScreen_ =std::make_shared<GameScreen>();
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		window.close();
 }
@@ -69,7 +70,7 @@ void MenuScreen::update(sf::Time delta)
 	}
 }
 
-void MenuScreen::render(sf::RenderWindow& window)
+void MenuScreen::render(sf::RenderWindow& window) const
 {
 	window.draw(text_);
 	window.draw(snakeText_);

@@ -5,20 +5,38 @@
 
 namespace sfSnake
 {
+enum class FruitColor{
+	Black,
+	Green,
+	Brown,
+	Red,
+	Blue
+};
+
 class Fruit
 {
 public:
 	Fruit(sf::Vector2f position = sf::Vector2f(0, 0));
 
-	void render(sf::RenderWindow& window);
+	FruitColor getColor() const;
+
+
+	void render(sf::RenderWindow& window) const;
+
+	FruitColor generateRandomColor();
 
 	sf::FloatRect getBounds() const;
 
+	static const float Radius;
 private:
 	sf::CircleShape shape_;
 
-	static const float Radius;
+	FruitColor color_;
+
+	
+
 };
-}
+
+} //namespace sfSnake
 
 #endif

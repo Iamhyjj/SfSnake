@@ -7,7 +7,10 @@
 #include <vector>
 #include <memory>
 
+#include "GameScreen.h"
 #include "Screen.h"
+#include "PauseScreen.h"
+#include "Button.h"
 
 namespace sfSnake
 {
@@ -22,10 +25,12 @@ public:
 	void update(sf::Time delta);
 	void render();
 
-	static const int Width = 640;
-	static const int Height = 480;
+	static const int Width = 1000;
+	static const int Height = 960;
 
 	static std::shared_ptr<Screen> Screen;
+	static std::shared_ptr<GameScreen> GameScreen_;
+	static std::shared_ptr<PauseScreen> PauseScreen_;
 
 private:
 	sf::RenderWindow window_;

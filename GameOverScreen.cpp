@@ -16,7 +16,7 @@ GameOverScreen::GameOverScreen(std::size_t score) : score_(score)
 	text_.setString("Your score: " + std::to_string(score) + "!"
 		"\n\nPress [SPACE] to retry"
 		"\n\nPress [ESC] to quit");
-	text_.setColor(sf::Color::Red);
+	text_.setFillColor(sf::Color::Red);
 
 	sf::FloatRect textBounds = text_.getLocalBounds();
 	text_.setOrigin(textBounds.left + textBounds.width / 2,
@@ -26,8 +26,10 @@ GameOverScreen::GameOverScreen(std::size_t score) : score_(score)
 
 void GameOverScreen::handleInput(sf::RenderWindow& window)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		Game::Screen = std::make_shared<GameScreen>();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+		Game::GameScreen_ = std::make_shared<GameScreen>();
+		Game::Screen = Game::GameScreen_;
+	} //重置GameScreen_,保留PauseScreen_
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		window.close();
 }
@@ -37,7 +39,7 @@ void GameOverScreen::update(sf::Time delta)
 
 }
 
-void GameOverScreen::render(sf::RenderWindow& window)
+void GameOverScreen::render(sf::RenderWindow& window) const
 {
 	window.draw(text_);
 }
