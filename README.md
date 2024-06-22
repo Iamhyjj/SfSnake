@@ -37,7 +37,7 @@
 （6）增加了障碍物和道具，丰富了游戏可玩性（游戏截图中障碍物为红色共3个，黄色护盾为道具之一）  
 （7）设定了游戏限时100秒，到时间后游戏自动结束  
 （8）在屏幕右上角增加了得分显示和剩余时间显示（见游戏截图）  
-![游戏截图](https://imgur.com/gallery/gamescreen-YKjjM4G)
+![游戏截图]([https://imgur.com/gallery/gamescreen-YKjjM4G](https://i.imgur.com/GFaMwET.png))
 
 ### 2. 重要的代码细节差异  
 #### (1) 蛇节点数组元素类型不同 
