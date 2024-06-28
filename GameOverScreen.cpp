@@ -27,7 +27,7 @@ GameOverScreen::GameOverScreen(std::size_t score) : score_(score)
 void GameOverScreen::handleInput(sf::RenderWindow& window)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-		Game::GameScreen_ = std::make_shared<GameScreen>();
+		Game::GameScreen_.reset(new GameScreen());
 		Game::Screen = Game::GameScreen_;
 	} //重置GameScreen_,保留PauseScreen_
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
